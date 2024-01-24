@@ -1,39 +1,11 @@
+@import "commons";
 @import 'variables';
 @import 'header';
 @import 'buttons';
 @import 'form';
 @import 'flash';
-
-html {
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  height: 100%;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-body {
-  height: 100%;
-  background-color: $base-bg-color;
-  font-size: 1em;
-  color: $text-base-color;
-}
-
-.container {
-  padding: 16px 16px;
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
+@import "mediaquery";
+@import "devise";
+// @charset "UTF-8";
+@import url("https://fonts.googleapis.com/earlyaccess/notosansjapanese.css");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");

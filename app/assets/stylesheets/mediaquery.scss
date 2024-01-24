@@ -1,0 +1,21 @@
+@import 'variables';
+
+//メディアクエリ用のブレークポイント
+$layout-width-inner: 1120px;
+
+$breakpoints: (
+  "sp": "screen and (max-width: 767px)",
+  //767px以下（スマホ）用の表示
+  "tab":
+    "screen and (min-width: 768px) and (max-width: #{$layout-width-inner - 1})",
+  //768~#{$layout-width-inner（タブレット）用の表示
+  "pc": "screen and (min-width: #{$layout-width-inner})"
+    //#{$layout-width-inner以上（PC）用の表示,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+) !default;
+
+//メディアクエリ用のmixin
+@mixin mq($breakpoint: "sp") {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
