@@ -7,15 +7,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root to: 'todo#index'
-  resources :todo
+  root to: 'boards#index'
+  resources :boards
 
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-
-  resources :boards, only: [:show, :new, :create, :edit, :update, :destroy!]
 
   resource :profile, only: [:show, :edit, :update]
 end

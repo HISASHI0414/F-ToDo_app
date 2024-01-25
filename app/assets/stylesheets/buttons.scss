@@ -3,6 +3,7 @@
 .btn-primary {
   background-color: $primary-color;
   border: none;
+  border-radius: 5px;
   width: 100%;
   text-align: center;
   color: white;
@@ -10,3 +11,55 @@
   font-weight: bold;
 }
 
+.btn_bottom {
+  position: fixed;
+  bottom: 5%;
+  width: 90%;
+}
+
+.dropbtn {
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  font-weight: normal;
+  display: none;
+  right: 0;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+  &_mini {
+    min-width: 100px;
+    a {
+      font-size: 18px;
+    }
+    button {
+      font-size: 18px;
+      background-color: $base-bg-color;
+    }
+  }
+}
+
+.dropdown-content a {
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  color: $text-base-color;
+}
+
+.dropdown-content a:hover {
+  background-color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

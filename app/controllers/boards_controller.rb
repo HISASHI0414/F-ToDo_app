@@ -1,8 +1,8 @@
 class BoardsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] #ログインした人しかできない
 
-  def show
-    @board = Board.find(params[:id])
+  def index
+    @boards = Board.all
   end
 
   def new
@@ -12,9 +12,9 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
-      redirect_to board_path(@board), notice: "Topicが作成されました！"
+      redirect_to board_path(@board), notice: 'Topicが作成されました！'
     else
-      flash.now[:error] = "Topicの作成に失敗しました"
+      flash.now[:error] = 'Topicの作成に失敗しました'
       render :new, status: :unprocessable_entity
     end
   end
@@ -26,17 +26,17 @@ class BoardsController < ApplicationController
   def update
     @board = current_user.boards.find(params[:id])
     if @board.update(board_params)
-      redirect_to board_path(@board), notice: "Topicが更新されました！"
+      redirect_to board_path(@board), notice: 'Topicが更新されました！'
     else
-      flash.now[:error] = "Topicの更新に失敗しました"
+      flash.now[:error] = 'Topicの更新に失敗しました'
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    board = current_user.boards.find!(params[:id])
+    board = current_user.boards.find(params[:id])
     board.destroy!
-    redirect_to root_path, notice: "削除に成功しました。"
+    redirect_to root_path, notice: '削除に成功しました。'
   end
 
   private
