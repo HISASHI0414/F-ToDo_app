@@ -1,8 +1,8 @@
 .container
-  %h3.board_top All Boards
+  .board_top
   -# - unless @boards.first.class == NilClass
-  .board
-    - @boards.each do |board|
+  - @boards.each do |board|
+    .board
       %h1.board_title= board.board_title.truncate(15)
       .board_content
         %h3= board.board_content.truncate(23)

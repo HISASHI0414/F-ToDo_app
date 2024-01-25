@@ -12,7 +12,7 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
-      redirect_to board_path(@board), notice: 'Topicが作成されました！'
+      redirect_to root_path, notice: 'Topicが作成されました！'
     else
       flash.now[:error] = 'Topicの作成に失敗しました'
       render :new, status: :unprocessable_entity
