@@ -1,6 +1,6 @@
 .container
   .devise
-    %h2 ログイン
+    %h2 Log-in
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       = render "devise/shared/error_messages", resource: resource
       = render 'devise/commons/email', f: f
@@ -10,5 +10,5 @@
           = f.check_box :remember_me, class: "rememberable_box"
           = f.label :remember_me, class: "rememberable_label"
       .btn
-        = f.submit "ログイン", class: "btn_submit"
+        = f.submit "Submit", class: "btn_submit"
     = render "devise/shared/links"

@@ -20,7 +20,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: $base-bg-color;
   color: $text-base-color;
-  font-family: "Meiryo", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "Noto Sans Japanese", sans-serif;
+  font-family: "Avenir", "Meiryo", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "Noto Sans Japanese", sans-serif;
   font-size: 16px;
   font-weight: 300;
   line-height: 1.6;
@@ -119,10 +119,9 @@ td {
 }
 
 a {
-  color: inherit;
   outline: none;
   text-decoration: none;
-  color:#fff;
+  color: $text-base-color;
 }
 
 a:hover {
@@ -150,6 +149,6 @@ ol {
 }
 
 .container {
-  width: 95%;
+  width: 90%;
   margin: auto;
 }
