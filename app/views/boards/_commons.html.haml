@@ -1,0 +1,14 @@
+.container
+  %ul
+    - board.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: board, local: true) do |f|
+    %div
+      = f.label :board_title, "Topic"
+    %div
+      = f.text_field :board_title, class: "text"
+    %div
+      = f.label :board_content, "Contents"
+    %div
+      = f.text_area :board_content
+    = f.submit "Submit", class: "btn-primary"

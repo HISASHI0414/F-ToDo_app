@@ -1,2 +1,16 @@
 .container
-  %p スタート！
+  - @boards.each do |board|
+    = link_to board_path(board) do
+      .card
+        .card_content
+          .card_title
+            = board.board_title
+          .card_detail
+            = image_tag board.user.avatar_image
+            %div
+              %p= board.author_name
+              %p= board.display_created_at
+  = link_to new_board_path do
+    .float_btn
+      %i.fa.fa-plus
+

@@ -2,11 +2,12 @@
 #
 # Table name: boards
 #
-#  id         :bigint           not null, primary key
-#  board_name :text             not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  id            :bigint           not null, primary key
+#  board_content :text             not null
+#  board_title   :text             not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  user_id       :bigint           not null
 #
 # Indexes
 #
