@@ -10,6 +10,15 @@ $header-padding-y: 16px;
   padding: $header-padding-y 16px;
   font-weight: bold;
 
+  &_logos {
+    display: flex;
+    .header_back {
+      width: 15px;
+      margin-right: 10px;
+      padding-top: 7.5px;
+    }
+  }
+
   &_pageTitle {
     color: white;
     line-height: $avatar-size;
@@ -20,6 +29,10 @@ $header-padding-y: 16px;
     width: $avatar-size;
     height: $avatar-size;
     border-radius: 100%;
+  }
+
+  &_loginBtn {
+    padding-top: 7.5px;
   }
 }
 

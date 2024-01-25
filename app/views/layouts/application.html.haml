@@ -22,7 +22,7 @@
           .dropdown-content
             %p link_to "プロフィール", profile_path
             %p link_to "お気に入り", favorites_path
-            %p link_to "ログアウト", destroy_user_session_path, data: { turbo_method: "delete" }
+            = link_to "ログアウト", destroy_user_session_path, data: { turbo_method: "delete" }
       - else
         = link_to "ログイン", new_user_session_path, class: "header_loginBtn"
     - if flash.present?
