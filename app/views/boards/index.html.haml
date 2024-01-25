@@ -1,0 +1,25 @@
+.container
+  %h3.board_top All Boards
+  -# - unless @boards.first.class == NilClass
+  .board
+    - @boards.each do |board|
+      %h1.board_title= board.board_title.truncate(15)
+      .board_content
+        %h3= board.board_content.truncate(23)
+      .board_detail
+        = image_tag board.user.avatar_image
+        %div
+          %p= board.user.display_name
+          %p= board.display_created_at
+      - if user_signed_in? && current_user.has_writtern?(board)
+        .board_detail_actions
+          .dropdown
+            = image_tag 'actions.svg', class: 'dropbtn'
+            .dropdown-content.mini
+              = link_to "編集する", edit_board_path(board)
+              = button_to "削除する", board_path(board), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }
+  = link_to new_board_path do
+    .board_to_new
+      .float_btn
+        %i.fa.fa-plus
+      %p Add new board

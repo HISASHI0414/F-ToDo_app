@@ -1,7 +1,7 @@
 @import 'variables';
 
 $avatar-size: 40px;
-$header-padding-y: 16px;
+$header-padding-y: 10px;
 
 .header {
   display: flex;
@@ -24,7 +24,10 @@ $header-padding-y: 16px;
   &_pageTitle {
     color: white;
     line-height: $avatar-size;
-    font-size: $font-lg;
+    a {
+      font-size: 28px;
+      font-weight: bold;
+    }
   }
 
   &_avatar {

@@ -1,0 +1,104 @@
+@import './variables';
+
+$avatar-size: 45px;
+$container-padding: 16px;
+
+.board {
+  background-color: #F4F4F4;
+  padding: $container-padding;
+  margin: 30px 0 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  position: relative;
+  width: 100%;
+  height: 170px;
+
+  &_top {
+    margin: 30px 0 30px;
+    font-size: 26px;
+    font-weight: 800;
+  }
+
+  &_image {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    margin: $container-padding * -1 $container-padding * -1 16px;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+  }
+
+  &_title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  &_content {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+
+  &_detail {
+    display: flex;
+    font-size: 12px;
+    position: relative;
+
+    img {
+      cursor: pointer;
+      width: $avatar-size;
+      height: $avatar-size;
+      border-radius: 100%;
+      margin-right: 16px;
+    }
+
+    &_actions {
+      position: absolute;
+      right: 25px;
+      bottom: 25px;
+    }
+  }
+
+  &_to_new {
+    width: 100%;
+    height: 170px;
+    display: flex; /*display:flexの状態で下２つ。ブロック要素を上下左右中央揃え*/
+    justify-content: center; /*左右中央揃え*/
+    align-items: center; /*上下中央揃え*/
+    margin: auto;
+    border: 1px dashed #00000033;
+    border-radius: 5px;
+    i {
+      padding-top: 6px;
+    }
+    p {
+      margin-left: 10px;
+      font-size: $font-lg;
+      font-weight: 400;
+    }
+  }
+}
+
+.topic {
+  &_title, &_content {
+    margin: 5px 0;
+
+    &_label {
+      font-size: 18px;
+      font-weight: 400;
+    }
+    &_area {
+      background-color: #F4F4F4;
+    }
+  }
+  &_title_area {
+    margin-bottom: 30px;
+  }
+}
