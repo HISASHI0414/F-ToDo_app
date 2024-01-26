@@ -3,9 +3,9 @@ class CreateTasks < ActiveRecord::Migration[7.1]
     create_table :tasks do |t|
       t.references :user, null: false
       t.references :board, null: false
-      t.text :task_title
-      t.date :task_deadline
-      t.text :task_content
+      t.text :task_title, null: false
+      t.date :task_deadline, null: false
+      t.text :task_content, null: false
       t.timestamps
     end
   end

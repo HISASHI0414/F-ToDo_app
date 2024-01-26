@@ -15,6 +15,7 @@ class TasksController < ApplicationController
     board = current_user.boards.find(params[:board_id])
     @task = board.tasks.build
     @task.user = current_user
+    @task.board_id = board.id
   end
 
   def create
@@ -22,19 +23,44 @@ class TasksController < ApplicationController
     @task = board.tasks.build(task_params)
     @task.user = current_user
     if @task.save
-      redirect_to board_tasks_path(board), notice: 'Taskが作成されました！'
+      redirect_to board_task_path(board_id: @task.board_id, id: @task.id), notice: 'Taskが作成されました！'
     else
       flash.now[:error] = 'Taskの作成に失敗しました'
       render :new, status: :unprocessable_entity
     end
   end
 
+
+  # def create
+  #   @board = current_user.boards.build(board_params)
+  #   if @board.save
+  #     redirect_to root_path, notice: 'Topicが作成されました！'
+  #   else
+  #     flash.now[:error] = 'Topicの作成に失敗しました'
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
+
+  # def edit
+  #   @board = current_user.boards.find(params[:id])
+  # end
+
+  # def update
+  #   @board = current_user.boards.find(params[:id])
+  #   if @board.update(board_params)
+  #     redirect_to root_path, notice: 'Topicが更新されました！'
+  #   else
+  #     flash.now[:error] = 'Topicの更新に失敗しました'
+  #     render :edit, status: :unprocessable_entity
+  #   end
+  # end
+
+
   def show
-    # task = Board.find(params[:board_id]).tasks.find(params[:id])
-    # @task = task
+    @task = Board.find(params[:board_id]).tasks.find(params[:id])
     # @task.user = task.user
-    @task = Task.find(params[:id])
-    Rails.logger.debug "@task: #{@task.inspect}"
+    # @task = Task.find(params[:id])
+    @comments = @task.comments.all
   end
 
   def edit
@@ -44,7 +70,7 @@ class TasksController < ApplicationController
   def update
     @task = current_user.boards.find(params[:board_id]).tasks.find(params[:id])
     if @task.update(task_params)
-      redirect_to board_task_path(@task), notice: 'Taskが更新されました！'
+      redirect_to board_task_path(board_id: @task.board_id, id: @task.id), notice: 'Taskが更新されました！'
     else
       flash.now[:error] = 'Topicの更新に失敗しました'
       render :edit, status: :unprocessable_entity

@@ -1,7 +1,7 @@
 %ul
   - task.errors.full_messages.each do |message|
     %li= message
-= form_with(model: task, url: board_tasks_path ,local: true) do |f|
+= form_with(model: task, url: board_task_path(board_id: task.board_id, id: task.id),local: true) do |f|
   .topic_eyecatch
     = f.label :eyecatch, "アイキャチ", class: "topic_eyecatch_label"
   .topic_eyecatch

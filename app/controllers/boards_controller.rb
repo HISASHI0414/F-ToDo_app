@@ -26,7 +26,7 @@ class BoardsController < ApplicationController
   def update
     @board = current_user.boards.find(params[:id])
     if @board.update(board_params)
-      redirect_to board_path(@board), notice: 'Topicが更新されました！'
+      redirect_to root_path, notice: 'Topicが更新されました！'
     else
       flash.now[:error] = 'Topicの更新に失敗しました'
       render :edit, status: :unprocessable_entity

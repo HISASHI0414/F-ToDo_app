@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :boards, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_many :tasks, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def display_name
     #ぼっち演算子"&."（オプショナルチェイニングとも言う）。nilの時はnilエラーを発生することなくスルーされる
