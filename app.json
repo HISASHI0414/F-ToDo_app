@@ -1,0 +1,16 @@
+{
+  "name": "ToDo app",
+  "description": "This is ToDo_app",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/HISASHI0414/F-ToDo_app",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}

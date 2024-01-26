@@ -39,7 +39,6 @@
 
 # 以下、新規に追加
 .gitignore
-Procfile.dev
 app/assets/builds/.keep
 app/assets/config/manifest.js
 bin/dev
