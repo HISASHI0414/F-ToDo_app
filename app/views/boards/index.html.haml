@@ -1,6 +1,5 @@
 .container
-  .board_top
-  -# - unless @boards.first.class == NilClass
+  %h2.board_top All Boards
   - @boards.each do |board|
     .board
       = link_to board_tasks_path(board) do

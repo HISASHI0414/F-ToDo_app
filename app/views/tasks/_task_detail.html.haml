@@ -1,0 +1,6 @@
+.task_detail
+  - if task&.user&.avatar_image.present?
+    = image_tag task.user.avatar_image
+  %div
+    %p= task.user.display_name
+    %p= task.display_created_at

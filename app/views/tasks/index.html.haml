@@ -1,23 +1,21 @@
 .container
-  .task_top
+  %h2.task_top All Tasks
   -# - unless @tasks.first.class == NilClass
   - @tasks.each do |task|
+    -# = render "task_detail", task: @task
     .task
-      %h1.task_title= task.task_title.truncate(15)
-      .task_content
-        %h3= task.task_content.truncate(23)
+      = link_to board_task_path(board_id: task.board.id, id: task.id) do
+        %h1.task_title= task.task_title.truncate(15)
+        .task_content
+          %h3= task.task_content.truncate(23)
+      -# = render "task_detail", task: @task
       .task_detail
-        = image_tag task.user.avatar_image
+        - if task.user.avatar_image.present?
+          = image_tag task.user.avatar_image
         %div
           %p= task.user.display_name
           %p= task.display_created_at
-      - if user_signed_in? && current_user.has_writtern_task?(task)
-        .task_detail_actions
-          .dropdown
-            = image_tag 'actions.svg', class: 'dropbtn'
-            .dropdown-content.mini
-              = link_to "編集する", edit_board_task_path(board_id: task.board.id, id: task.id)
-              = button_to "削除する", board_task_path(board_id: task.board.id, id: task.id), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }
+      = render "task_edit", task: task
   = link_to new_board_task_path do
     .task_to_new
       .float_btn

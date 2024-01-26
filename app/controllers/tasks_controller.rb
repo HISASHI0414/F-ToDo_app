@@ -4,11 +4,17 @@ class TasksController < ApplicationController
   def index
     board = Board.find(params[:board_id])
     @tasks = board.tasks.all
+
+    # 各タスクにユーザーを設定
+    @tasks.each do |task|
+      task.user = board.user
+    end
   end
 
   def new
     board = current_user.boards.find(params[:board_id])
     @task = board.tasks.build
+    @task.user = current_user
   end
 
   def create
@@ -24,7 +30,11 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Board.find(params[:board_id]).tasks.find(params[:id])
+    # task = Board.find(params[:board_id]).tasks.find(params[:id])
+    # @task = task
+    # @task.user = task.user
+    @task = Task.find(params[:id])
+    Rails.logger.debug "@task: #{@task.inspect}"
   end
 
   def edit
@@ -50,6 +60,7 @@ class TasksController < ApplicationController
   private
   def task_params
     params.require(:task).permit(
+      :eyecatch,
       :task_title,
       :task_deadline,
       :task_content

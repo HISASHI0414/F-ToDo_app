@@ -1,20 +1,10 @@
 .container
+  .task_top
+  %h1.task_title= @task.task_title
+  - if @task.eyecatch.attached?
+    .task_image
+      = image_tag @task.eyecatch
   .task
-    - if @task.eyecatch.attached?
-      .task_image
-        = image_tag @task.eyecatch
-    %h1.task_title= @task.title
-    .task_detail
-      = image_tag @task.user.avatar_image
-      %div
-        %p= @task.user.display_name
-        %p= @task.display_created_at
-    - if user_signed_in? && current_user.has_writtern_task?(@task)
-      .task_detail_actions
-        .dropdown
-          = image_tag 'actions.svg', class: 'dropbtn'
-          .dropdown-content.mini
-            = link_to "編集する", edit_task_path(@task)
-            = link_to "削除する", task_path(@task), data: { turbo_method: :delete, turbo_confirm: "本当に削除してもよろしいですか？"}
     .task_content
-      %h3= @task.content
+      %h3= @task.task_content
+  %h1 Comments

@@ -22,6 +22,7 @@ class Task < ApplicationRecord
   validates :task_title, presence: true
   validates :task_content, presence: true
   validates :task_deadline, presence: true
+  has_one_attached :eyecatch, dependent: :destroy
 
   def display_created_at
     I18n.l(self.created_at, format: :default)
