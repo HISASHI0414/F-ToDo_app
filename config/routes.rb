@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # root "posts#index"
   root to: 'boards#index'
   resources :boards do
-    resources :tasks
+    resources :tasks do
+      resources :comments, only: [:new, :create]
+    end
   end
 
   devise_for :users

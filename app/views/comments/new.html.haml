@@ -1,0 +1,11 @@
+.container
+  %ul
+  - @comment.errors.full_messages.each do |message|
+    %li= message
+  %h3.comment_top New Comment
+  = form_with(model: @comment, url: board_task_comments_path(board_id: @comment.board_id, task_id: @comment.task_id) ,local: true) do |f|
+    .topic_title
+      = f.label :comment_content, "50文字以内で", class: "topic_title_label"
+    .topic_content
+      = f.text_area :comment_content, class: "topic_content_area"
+    = f.submit "Submit", class: "btn-primary btn_bottom"  

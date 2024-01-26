@@ -8,3 +8,15 @@
     .task_content
       %h3= @task.task_content
   %h1 Comments
+  .comment
+  - @comments.each do |comment|
+    .flex
+      .comment_image
+        = image_tag comment.user.avatar_image, class: "comment_avatar"
+      .comment_content
+        %h3= comment.comment_content
+  = link_to new_board_task_comment_path(board_id: @task.board.id, task_id: @task.id) do
+    .task_to_new
+      .float_btn
+        %i.fa.fa-plus
+      %p Add new comment

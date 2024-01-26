@@ -64,7 +64,7 @@
 
   &_to_new {
     width: 100%;
-    height: 170px;
+    height: 60px;
     display: flex; /*display:flexの状態で下２つ。ブロック要素を上下左右中央揃え*/
     justify-content: center; /*左右中央揃え*/
     align-items: center; /*上下中央揃え*/
@@ -103,5 +103,36 @@
   }
   &_title_area, &_deadline_area {
     margin-bottom: 10px;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.comment {
+  padding-top: 10px;
+
+  &_top {
+    margin: 20px 0 15px;
+    font-size: 22px;
+    font-weight: 800;
+  }
+  &_image{
+    width: 15%;
+  }
+
+  &_avatar {
+
+    height: auto;
+    border-radius: 100%;
+  }
+
+  &_content {
+    font-size: 14px;
+    width: 80%;
+
   }
 }
