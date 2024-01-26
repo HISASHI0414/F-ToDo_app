@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root to: 'boards#index'
-  resources :boards
+  resources :boards do
+    resources :tasks
+  end
 
   devise_for :users
   devise_scope :user do
@@ -16,4 +18,6 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:show, :edit, :update]
+
+
 end

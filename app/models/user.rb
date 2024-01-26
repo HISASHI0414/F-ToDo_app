@@ -23,6 +23,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :boards, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 
   def display_name
     #ぼっち演算子"&."（オプショナルチェイニングとも言う）。nilの時はnilエラーを発生することなくスルーされる
@@ -41,7 +42,11 @@ class User < ApplicationRecord
     end
   end
 
-  def has_writtern?(board)
+  def has_writtern_board?(board)
     boards.exists?(id: board.id)
+  end
+
+  def has_writtern_task?(task)
+    tasks.exists?(id: task.id)
   end
 end

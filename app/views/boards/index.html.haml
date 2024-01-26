@@ -3,15 +3,16 @@
   -# - unless @boards.first.class == NilClass
   - @boards.each do |board|
     .board
-      %h1.board_title= board.board_title.truncate(15)
-      .board_content
-        %h3= board.board_content.truncate(23)
+      = link_to board_tasks_path(board) do
+        %h1.board_title= board.board_title.truncate(15)
+        .board_content
+          %h3= board.board_content.truncate(23)
       .board_detail
         = image_tag board.user.avatar_image
         %div
           %p= board.user.display_name
           %p= board.display_created_at
-      - if user_signed_in? && current_user.has_writtern?(board)
+      - if user_signed_in? && current_user.has_writtern_board?(board)
         .board_detail_actions
           .dropdown
             = image_tag 'actions.svg', class: 'dropbtn'

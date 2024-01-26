@@ -1,10 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  def show
-    @profile = current_user.profile
-  end
-
   def edit
     @profile = current_user.prepare_profile #user.rb (model)にて定義
   end
@@ -13,7 +9,7 @@ class ProfilesController < ApplicationController
     @profile = current_user.prepare_profile
     @profile.assign_attributes(profile_params)
     if @profile.save
-      redirect_to profile_path, notice: 'プロフィールを更新しました！'
+      redirect_to root_path, notice: 'プロフィールを更新しました！'
     else
       flash.now[:error] = 'プロフィールが更新できませんでした。'
       render :edit

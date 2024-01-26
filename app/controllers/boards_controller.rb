@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] #ログインした人しかできない
+  before_action :authenticate_user! #ログインした人しかできない
 
   def index
     @boards = Board.all
