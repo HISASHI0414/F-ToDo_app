@@ -1,0 +1,10 @@
+.container
+  .task_top
+  %h1.task_title= @task.task_title
+  - if @task.eyecatch.attached?
+    .task_image
+      = image_tag @task.eyecatch
+  .task
+    .task_content
+      %h3= @task.task_content
+  %h1 Comments

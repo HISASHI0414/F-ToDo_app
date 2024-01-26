@@ -1,0 +1,23 @@
+.container
+  %h2.task_top All Tasks
+  -# - unless @tasks.first.class == NilClass
+  - @tasks.each do |task|
+    -# = render "task_detail", task: @task
+    .task
+      = link_to board_task_path(board_id: task.board.id, id: task.id) do
+        %h1.task_title= task.task_title.truncate(15)
+        .task_content
+          %h3= task.task_content.truncate(23)
+      -# = render "task_detail", task: @task
+      .task_detail
+        - if task.user.avatar_image.present?
+          = image_tag task.user.avatar_image
+        %div
+          %p= task.user.display_name
+          %p= task.display_created_at
+      = render "task_edit", task: task
+  = link_to new_board_task_path do
+    .task_to_new
+      .float_btn
+        %i.fa.fa-plus
+      %p Add new task
