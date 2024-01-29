@@ -19,6 +19,6 @@
   .topic_content
     = f.label :task_content, "Contents", class: "topic_content_label"
   .topic_content
-    = f.text_area :task_content, class: "topic_content_area"
+    = f.rich_text_area :task_content, class: "topic_content_area"
 
   = f.submit "Submit", class: "btn-primary btn_bottom"
