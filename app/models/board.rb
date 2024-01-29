@@ -19,6 +19,7 @@ class Board < ApplicationRecord
   validates :board_title, presence: true
   validates :board_content, presence: true
   has_many :comments, dependent: :destroy
+  has_rich_text :content
 
   def author_name
     user.display_name #article.rbはuser.rbと紐づいている（belongs_to :user）ため、user.rb内のメソッド（display_name）が使える
