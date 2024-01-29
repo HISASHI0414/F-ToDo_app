@@ -220,6 +220,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.0-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.0-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.24.0)
     parser (3.3.0.5)
@@ -341,6 +343,8 @@ GEM
       google-protobuf (~> 3.25)
     sass-embedded (1.70.0-arm64-darwin)
       google-protobuf (~> 3.25)
+    sass-embedded (1.70.0-x86_64-linux-gnu)
+      google-protobuf (~> 3.25)
     selenium-webdriver (4.17.0)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -395,6 +399,7 @@ PLATFORMS
   arm-linux-gnueabihf
   arm-linux-musleabihf
   arm64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   annotate
