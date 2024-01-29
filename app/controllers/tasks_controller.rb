@@ -12,14 +12,14 @@ class TasksController < ApplicationController
   end
 
   def new
-    board = current_user.boards.find(params[:board_id])
+    board = Board.find(params[:board_id])
     @task = board.tasks.build
     @task.user = current_user
     @task.board_id = board.id
   end
 
   def create
-    board = current_user.boards.find(params[:board_id])
+    board = Board.find(params[:board_id])
     @task = board.tasks.build(task_params)
     @task.user = current_user
     if @task.save
@@ -29,32 +29,6 @@ class TasksController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
-
-  # def create
-  #   @board = current_user.boards.build(board_params)
-  #   if @board.save
-  #     redirect_to root_path, notice: 'Topicが作成されました！'
-  #   else
-  #     flash.now[:error] = 'Topicの作成に失敗しました'
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
-
-  # def edit
-  #   @board = current_user.boards.find(params[:id])
-  # end
-
-  # def update
-  #   @board = current_user.boards.find(params[:id])
-  #   if @board.update(board_params)
-  #     redirect_to root_path, notice: 'Topicが更新されました！'
-  #   else
-  #     flash.now[:error] = 'Topicの更新に失敗しました'
-  #     render :edit, status: :unprocessable_entity
-  #   end
-  # end
-
 
   def show
     @task = Board.find(params[:board_id]).tasks.find(params[:id])

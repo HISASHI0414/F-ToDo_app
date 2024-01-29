@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    board = current_user.boards.find(params[:board_id])
+    board = Board.find(params[:board_id])
     task = board.tasks.find(params[:task_id])
     @comment = task.comments.build
     @comment.user = current_user
@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    board = current_user.boards.find(params[:board_id])
+    board = Board.find(params[:board_id])
     task = board.tasks.find(params[:task_id])
     @comment = task.comments.build(comment_params)
     @comment.user = current_user
