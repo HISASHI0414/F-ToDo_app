@@ -19,6 +19,7 @@
 class Task < ApplicationRecord
   belongs_to :user
   belongs_to :board
+  has_rich_text :task_content
   validates :task_title, presence: true
   validates :task_content, presence: true
   validates :task_deadline, presence: true
