@@ -1,0 +1,12 @@
+.container.profile_Page
+  .profile_Page_user
+    .profile_Page_user_image
+      = image_tag @account.avatar_image
+    .profile_Page_user_basicInfo
+      .profile_Page_user_name
+        .profile_Page_user_displayName
+          #{@account.display_name}
+        - if current_user.has_followed?(@account)
+          = button_to 'unfollow', account_unfollows_path(account_id: @account.id), method: :post ,class: "profile_Page_user_actionButton"
+        - else
+          = button_to 'Follow', account_follows_path(account_id: @account.id), method: :post ,class: "profile_Page_user_actionButton"

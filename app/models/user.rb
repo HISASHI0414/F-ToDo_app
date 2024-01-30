@@ -26,21 +26,14 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  def display_name
-    #ぼっち演算子"&."（オプショナルチェイニングとも言う）。nilの時はnilエラーを発生することなくスルーされる
-    profile&.nickname || self.email.split('@').first
-  end
+  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+  has_many :followings, through: :following_relationships, source: :following
+
+  has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :follower_relationships, source: :follower
 
   def prepare_profile
     profile || build_profile
-  end
-
-  def avatar_image
-    if profile&.avatar&.attached?
-      profile.avatar
-    else
-      'default-avatar.png'
-    end
   end
 
   def has_writtern_board?(board)
@@ -49,5 +42,29 @@ class User < ApplicationRecord
 
   def has_writtern_task?(task)
     tasks.exists?(id: task.id)
+  end
+
+  def follow!(account)
+    account_id = get_user_id(account)
+    following_relationships.create!(following_id: account_id)
+  end
+
+  def unfollow!(account)
+    account_id = get_user_id(account)
+    relation = following_relationships.find_by!(following_id: account_id)
+    relation.destroy!
+  end
+  # current_user.has_followed?(@account)
+  def has_followed?(account)
+    following_relationships.exists?(following_id: account.id)
+  end
+
+  private
+  def get_user_id(account)
+    if account.is_a?(User)
+      account_id = account.id
+    else
+      account_id = account
+    end
   end
 end
