@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:new, :create]
     end
   end
+  resource :timeline, only: [:show]
 
   devise_for :users
   devise_scope :user do
@@ -21,5 +22,10 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show, :edit, :update]
 
+  resources :accounts, only: [:show] do
+    resources :follows, only: [:create]
+    resources :unfollows, only: [:create]
+  end
 
+  mount ActionText::Engine, at: "/action_text"
 end

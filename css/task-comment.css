@@ -1,0 +1,227 @@
+@charset "UTF-8";
+.board {
+  background-color: #F4F4F4;
+  padding: 10px 16px;
+  margin: 30px 0 30px;
+  position: relative;
+  width: 100%;
+  height: 160px;
+  border-radius: 5px;
+}
+.board_top {
+  margin: 20px 0 15px;
+  font-size: 22px;
+  font-weight: 800;
+}
+.board_image {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  margin: -16px -16px 16px;
+}
+.board_image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.board_title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.board_content {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+.board_detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  position: relative;
+}
+.board_detail img {
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  margin-right: 16px;
+}
+.board_detail_actions {
+  position: absolute;
+  right: 25px;
+  bottom: 15px;
+}
+.board_to_new {
+  width: 100%;
+  height: 170px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; /*display:flexの状態で下２つ。ブロック要素を上下左右中央揃え*/
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; /*左右中央揃え*/
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /*上下中央揃え*/
+  margin: auto;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.board_to_new i {
+  padding-top: 6px;
+}
+.board_to_new p {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.board_to_new:hover {
+  background-color: rgba(83, 171, 235, 0.7);
+}
+
+.topic_title, .topic_content {
+  margin: 5px 0;
+}
+.topic_title_label, .topic_content_label {
+  font-size: 18px;
+  font-weight: 400;
+}
+.topic_title_area, .topic_content_area {
+  background-color: #F4F4F4;
+}
+.topic_title_area {
+  margin-bottom: 30px;
+}
+
+.task {
+  background-color: #F4F4F4;
+  padding: 10px 16px;
+  margin: 30px 0 30px;
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+}
+.task_top {
+  margin: 20px 0 15px;
+  font-size: 22px;
+  font-weight: 800;
+}
+.task_image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.task_image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.task_title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.task_content {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+.task_detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  position: relative;
+}
+.task_detail img {
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  margin-right: 16px;
+}
+.task_detail_actions {
+  position: absolute;
+  right: 25px;
+  bottom: 15px;
+}
+.task_to_new {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; /*display:flexの状態で下２つ。ブロック要素を上下左右中央揃え*/
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; /*左右中央揃え*/
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /*上下中央揃え*/
+  margin: auto;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.task_to_new i {
+  padding-top: 6px;
+}
+.task_to_new p {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.task_to_new:hover {
+  background-color: rgba(83, 171, 235, 0.7);
+}
+
+.topic_eyecatch_label, .topic_title_label, .topic_deadline_label, .topic_content_label {
+  font-size: 18px;
+  font-weight: 400;
+}
+.topic_eyecatch_area, .topic_title_area, .topic_deadline_area, .topic_content_area {
+  background-color: #F4F4F4;
+}
+.topic_eyecatch_file, .topic_title_file, .topic_deadline_file, .topic_content_file {
+  margin-bottom: 10px;
+}
+.topic_title_area, .topic_deadline_area {
+  margin-bottom: 10px;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.comment {
+  padding-top: 10px;
+}
+.comment_top {
+  margin: 20px 0 15px;
+  font-size: 22px;
+  font-weight: 800;
+}
+.comment_image {
+  width: 15%;
+}
+.comment_avatar {
+  height: auto;
+  border-radius: 100%;
+}
+.comment_content {
+  font-size: 14px;
+  width: 80%;
+}

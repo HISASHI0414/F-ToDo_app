@@ -3,7 +3,6 @@
 # Table name: tasks
 #
 #  id            :bigint           not null, primary key
-#  task_content  :text
 #  task_deadline :date
 #  task_title    :text
 #  created_at    :datetime         not null
@@ -25,8 +24,4 @@ class Task < ApplicationRecord
   validates :task_deadline, presence: true
   has_one_attached :eyecatch, dependent: :destroy
   has_many :comments, dependent: :destroy
-
-  def display_created_at
-    I18n.l(self.created_at, format: :default)
-  end
 end
